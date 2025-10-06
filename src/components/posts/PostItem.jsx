@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import DeletePost from './DeletePost';
+
 export default function PostItem({ post }) {
   return (
     <div>
@@ -22,7 +24,9 @@ export default function PostItem({ post }) {
       </p>
 
       {/* Actions */}
-      <div className="flex gap-3"></div>
+      <div className="flex gap-3">
+        <DeletePost postId={post.id} />
+      </div>
     </div>
   );
 }
