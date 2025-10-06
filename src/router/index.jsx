@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import LoginPage from '../pages/LoginPage';
 import PostsPage from '../pages/PostsPage';
 import MainLayout from '../layouts/MainLayout';
+import { getPosts } from '../apis/posts-api';
 // index.jsx
 export const router = createBrowserRouter([
   {
@@ -9,7 +10,7 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <LoginPage /> },
-      { path: '/post', element: <PostsPage /> },
+      { path: '/post', element: <PostsPage />, loader: getPosts },
     ],
   },
 ]);

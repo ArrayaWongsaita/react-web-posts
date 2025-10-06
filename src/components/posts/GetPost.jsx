@@ -1,18 +1,17 @@
-// GetPost.jsx
-import { getPosts } from '../../apis/posts-api';
+// src/components/posts/GetPost.jsx
+
+import { useLoaderData } from 'react-router';
+import PostItem from './PostItem';
 
 export default function GetPost() {
-  const hdlGetPosts = async () => {
-    try {
-      const posts = await getPosts();
-    } catch (error) {
-      console.log(error);
-      alert('get error');
-    }
-  };
+  const posts = useLoaderData();
+
   return (
-    <div>
-      <button onClick={hdlGetPosts}>GET</button>
+    <div className=" mx-2 grid grid-cols-3 gap-4">
+      {/* show data */}
+      {posts.map((post) => (
+        <PostItem key={post.id} post={post} />
+      ))}
     </div>
   );
 }
