@@ -16,3 +16,7 @@ export const createPost = async (data) => {
 export const deletePostApi = async (postId) => {
   await axiosInstance.delete(`/posts/${userId}/${postId}`);
 };
+
+export const updatePostApi = async (data) => {
+  await axiosInstance.put(`/posts/${userId}`, data);
+};

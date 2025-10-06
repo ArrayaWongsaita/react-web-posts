@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import DeletePost from './DeletePost';
+import UpdatePost from './UpdatePost';
 
 export default function PostItem({ post }) {
   return (
@@ -24,7 +25,8 @@ export default function PostItem({ post }) {
       </p>
 
       {/* Actions */}
-      <div className="flex gap-3">
+      <div className="flex flex-col">
+        <UpdatePost postId={post.id} defaultValue={post} />
         <DeletePost postId={post.id} />
       </div>
     </div>
